@@ -8,6 +8,8 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
+app.use(express.json());
+app.use(cors());
 
 const io = new Server({
   cors: true,
@@ -20,8 +22,6 @@ app.use(
   })
 );
 
-app.use(express.json());
-app.use(cors());
 app.use(bodyParser.json());
 app.use(logger("dev"));
 
