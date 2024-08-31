@@ -4,22 +4,16 @@ const port = 4000;
 require("dotenv").config();
 var logger = require("morgan");
 const bodyParser = require("body-parser");
-const { Server } = require("socket.io")(http, {
-  cors: {
-    origin: "*",
-  },
-});
+const { Server } = require("socket.io");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 app.use(express.json());
 app.use(cors());
 
-// const io = new Server(
-//   cors({
-//     origin: "*",
-//   })
-// );
+const io = new Server({
+  cors: true,
+});
 app.use(
   cors({
     origin: "https://asocial-front-end.vercel.app", // Replace with the URL of your frontend - helps in exchanging data on different ports
