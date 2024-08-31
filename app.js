@@ -8,12 +8,13 @@ const { Server } = require("socket.io");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
+
 const io = new Server({
   cors: true,
 });
 app.use(
   cors({
-    origin: "http://localhost:5173", // Replace with the URL of your frontend - helps in exchanging data on different ports
+    origin: "asocial-front-end.vercel.app", // Replace with the URL of your frontend - helps in exchanging data on different ports
     methods: ["GET", "POST", "PUT", "DELETE"], // Specify the methods you want to allow
     allowedHeaders: ["Content-Type", "Authorization"], // Specify the headers you want to allow
   })
@@ -902,12 +903,12 @@ app.post("/sendSms", async (req, res) => {
   sixDigitNumber = generateSixDigitNumber();
 
   try {
-    // const message = await sendSMS(
-    //   `your verification code is ${sixDigitNumber}`
-    // );
+    const message = await sendSMS(
+      `your verification code is ${sixDigitNumber}`
+    );
     res.json({
       message: `SMS sent to ${mobileNo}`,
-      // sid: message.sid,
+      sid: message.sid,
       code: sixDigitNumber,
     });
   } catch (err) {
