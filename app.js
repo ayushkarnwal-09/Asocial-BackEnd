@@ -12,13 +12,7 @@ const jwt = require("jsonwebtoken");
 const io = new Server({
   cors: true,
 });
-app.use(
-  cors({
-    origin: "asocial-front-end.vercel.app", // Replace with the URL of your frontend - helps in exchanging data on different ports
-    methods: ["GET", "POST", "PUT", "DELETE"], // Specify the methods you want to allow
-    allowedHeaders: ["Content-Type", "Authorization"], // Specify the headers you want to allow
-  })
-);
+app.use({ cors: true });
 
 app.use(express.json());
 app.use(cors());
