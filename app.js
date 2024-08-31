@@ -4,7 +4,7 @@ const port = 4000;
 require("dotenv").config();
 var logger = require("morgan");
 const bodyParser = require("body-parser");
-const { Server } = require("socket.io")(https, {
+const { Server } = require("socket.io")(http, {
   cors: {
     origin: "*",
   },
