@@ -16,7 +16,7 @@ const io = new Server({
 });
 app.use(
   cors({
-    origin: "*", // Replace with the URL of your frontend - helps in exchanging data on different ports
+    origin: "https://asocial-front-end.vercel.app", // Replace with the URL of your frontend - helps in exchanging data on different ports
     methods: ["GET", "POST", "PUT", "DELETE"], // Specify the methods you want to allow
     allowedHeaders: ["Content-Type", "Authorization"], // Specify the headers you want to allow
   })
