@@ -11,9 +11,11 @@ const jwt = require("jsonwebtoken");
 app.use(express.json());
 app.use(cors());
 
-const io = new Server({
-  cors: true,
-});
+const io = new Server(
+  cors({
+    origin: "*",
+  })
+);
 app.use(
   cors({
     origin: "https://asocial-front-end.vercel.app", // Replace with the URL of your frontend - helps in exchanging data on different ports
