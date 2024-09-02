@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const port = 4000;
+const appPort = process.env.PORT || 4000;
 require("dotenv").config();
 var logger = require("morgan");
 const bodyParser = require("body-parser");
@@ -14,6 +14,7 @@ app.use(cors());
 const io = new Server({
   cors: true,
 });
+const socketPort = process.env.PORT || 8000;
 // declaring socket globally
 global.socketio = io;
 
@@ -925,14 +926,14 @@ app.post("/sendSms", async (req, res) => {
 });
 
 // Running Servers
-app.listen(port, (error) => {
+app.listen(appPort, (error) => {
   if (!error) {
-    console.log("server running on Port " + port);
+    console.log("server running on Port " + appPort);
   } else {
     console.log("Error : " + error);
   }
 });
-io.listen(8000, (error) => {
+io.listen(socketPort, (error) => {
   if (!error) console.log("io server is running on port 8000");
   else console.log("error : " + error);
 });
