@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const server = require("http").createServer(app);
+const server = require("https").createServer(app);
 const appPort = 4000;
 require("dotenv").config();
 var logger = require("morgan");
@@ -925,7 +925,7 @@ app.post("/sendSms", async (req, res) => {
 });
 
 // Running Servers
-app.listen(appPort, (error) => {
+server.listen(appPort, (error) => {
   if (!error) {
     console.log("server running on Port " + appPort);
   } else {
