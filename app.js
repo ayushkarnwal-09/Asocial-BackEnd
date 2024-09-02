@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const appPort = process.env.PORT || 4000;
+const appPort = 4000;
 require("dotenv").config();
 var logger = require("morgan");
 const bodyParser = require("body-parser");
@@ -14,7 +14,7 @@ app.use(cors());
 const io = new Server({
   cors: true,
 });
-const socketPort = process.env.PORT || 8000;
+const socketPort = 8000;
 // declaring socket globally
 global.socketio = io;
 
