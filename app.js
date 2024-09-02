@@ -872,6 +872,10 @@ app.post("/addingInterestThroughMyAccount", async (req, res) => {
   }
 });
 
+app.get("/https://asocial-backend-l8ro.onrender.com", (req, res) => {
+  <h1>hello world</h1>;
+});
+
 // sending sms section
 app.post("/sendSms", async (req, res) => {
   let sixDigitNumber;
