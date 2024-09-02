@@ -31,14 +31,14 @@ app.use(logger("dev"));
 const phoneNoToSocketIdMap = new Map();
 const socketidToPhoneNoMap = new Map();
 
-io.use((socket, next) => {
-  const token = socket.handshake.headers["authorization"];
-  if (token) {
-    next();
-  } else {
-    next(new Error("Authentication error"));
-  }
-});
+// io.use((socket, next) => {
+//   const token = socket.handshake.headers["authorization"];
+//   if (token) {
+//     next();
+//   } else {
+//     next(new Error("Authentication error"));
+//   }
+// });
 
 io.on("connection", (socket) => {
   console.log(`Socket connected`, socket.id);
