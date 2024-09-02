@@ -1,20 +1,19 @@
 const express = require("express");
 const app = express();
+const server = require("http").createServer(app);
 const appPort = 4000;
 require("dotenv").config();
 var logger = require("morgan");
 const bodyParser = require("body-parser");
-const { Server } = require("socket.io");
+// const { Server } = require("socket.io");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 app.use(express.json());
 app.use(cors());
 
-const io = new Server({
-  cors: true,
-});
-const socketPort = 8000;
+const io = require("socket.io")(server, { cors: { origin: "*" } });
+
 // declaring socket globally
 global.socketio = io;
 
@@ -932,8 +931,4 @@ app.listen(appPort, (error) => {
   } else {
     console.log("Error : " + error);
   }
-});
-io.listen(socketPort, (error) => {
-  if (!error) console.log("io server is running on port 8000");
-  else console.log("error : " + error);
 });
