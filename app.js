@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const server = require("https").createServer({}, app);
+const server = require("http").createServer(app);
 const appPort = 4000;
 require("dotenv").config();
 var logger = require("morgan");
