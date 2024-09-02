@@ -905,12 +905,12 @@ app.post("/sendSms", async (req, res) => {
   sixDigitNumber = generateSixDigitNumber();
 
   try {
-    const message = await sendSMS(
-      `your verification code is ${sixDigitNumber}`
-    );
+    // const message = await sendSMS(
+    //   `your verification code is ${sixDigitNumber}`
+    // );
     res.json({
       message: `SMS sent to ${mobileNo}`,
-      sid: message.sid,
+      // sid: message.sid,
       code: sixDigitNumber,
     });
   } catch (err) {
