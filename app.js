@@ -14,6 +14,10 @@ app.use(cors());
 const io = new Server({
   cors: true,
 });
+// declaring socket globally
+global.socketio = io;
+
+// backend cors using
 app.use(
   cors({
     origin: "*", // Replace with the URL of your frontend - helps in exchanging data on different ports
