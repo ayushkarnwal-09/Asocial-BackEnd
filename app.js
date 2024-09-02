@@ -873,7 +873,7 @@ app.post("/addingInterestThroughMyAccount", async (req, res) => {
 });
 
 app.get("/https://asocial-backend-l8ro.onrender.com", (req, res) => {
-  <h1>hello world</h1>;
+  console.log("hello world");
 });
 
 // sending sms section
