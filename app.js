@@ -872,8 +872,9 @@ app.post("/addingInterestThroughMyAccount", async (req, res) => {
   }
 });
 
-app.get("/https://asocial-backend-l8ro.onrender.com", (req, res) => {
+app.get("/", (req, res) => {
   console.log("hello world");
+  res.send("Hello from the server!");
 });
 
 // sending sms section
